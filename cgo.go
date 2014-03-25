@@ -8,10 +8,18 @@ package main
 import "C"
 
 import "fmt"
+import (
+	"flag"
+	"github.com/golang/glog"
+	"time"
+)
 
 import _ "unsafe"
 
 func main() {
+	flag.Parse()
+	timer := time.NewTicker(2 * time.Second)
+	timer_two := time.NewTicker(5 * time.Second)
 
 	fmt.Println(C.GoString(C.cupsUser()))
 
@@ -22,11 +30,11 @@ func main() {
 	num_options := C.int(0)
 
 	num_options = C.cupsAddOption(C.CString("PageSize"), C.CString("Postcard"), C.int(num_options), &options)
+	num_options = C.cupsAddOption(C.CString("MediaSize"), C.CString("A4"), C.int(num_options), &options)
+	num_options = C.cupsAddOption(C.CString("MediaSize1"), C.CString("A5"), C.int(num_options), &options)
 
-	num_options = C.cupsAddOption(C.CString("Media"), C.CString("Photo"), C.int(num_options), &options)
-
-	dest := C.CString("EPSON_Epson_Stylus_Photo_T50")
-	file := C.CString("/Users/Raymond/Downloads/hz.png")
+	dest := C.CString("Test")
+	file := C.CString("/Users/ZhouYT/Downloads/follow.png")
 	title := C.CString("Test Print")
 
 	job_id, err := C.cupsPrintFile(dest, file, title, num_options, options)
@@ -37,4 +45,25 @@ func main() {
 
 	defer C.cupsFreeOptions(num_options, options)
 
+	fmt.Println(C.GoString(options.name))
+
+	for {
+		select {
+		case <-timer.C:
+
+			go func() {
+				fmt.Println("test2")
+				glog.Info("test")
+			}()
+
+		case <-timer_two.C:
+
+			go func() {
+				fmt.Println("test5")
+				glog.Info("test5")
+			}()
+		}
+	}
+
+	defer glog.Flush()
 }

@@ -1,0 +1,19 @@
+Log file created at: 2014/03/25 21:19:05
+Running on machine: zhouyts-mac-pro
+Binary: Built with gc go1.2.1 for darwin/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0325 21:19:05.002531 05691 cgo.go:54] test
+I0325 21:19:07.002484 05691 cgo.go:54] test
+I0325 21:19:09.002505 05691 cgo.go:54] test
+I0325 21:19:11.002513 05691 cgo.go:54] test
+I0325 21:19:13.002513 05691 cgo.go:54] test
+I0325 21:19:15.002513 05691 cgo.go:54] test
+I0325 21:19:17.002513 05691 cgo.go:54] test
+I0325 21:19:19.001634 05691 cgo.go:54] test
+I0325 21:19:21.002509 05691 cgo.go:54] test
+I0325 21:19:23.002105 05691 cgo.go:54] test
+I0325 21:19:25.002481 05691 cgo.go:54] test
+I0325 21:19:27.002508 05691 cgo.go:54] test
+I0325 21:19:29.001510 05691 cgo.go:54] test
+I0325 21:19:31.002509 05691 cgo.go:54] test
+I0325 21:19:33.002510 05691 cgo.go:54] test
